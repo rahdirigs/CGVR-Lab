@@ -16,13 +16,13 @@ float x[MAXN], y[MAXN];
 int m = 0;
 float intx[MAXN] = {0};
 
-void delay(int delay_time) {
-  clock_t start_time = clock();
-  while (clock() < start_time + delay_time);
+void delay(float secs) {
+  clock_t end = clock() / CLOCKS_PER_SEC + secs;
+  while ((clock() / CLOCKS_PER_SEC) < end);
 }
 
 void draw_line(float x1, float x2, float y_common) {
-  delay(1000);
+  delay(0.2);
   glColor3f(1.0, 1.0, 0.0);
   glBegin(GL_LINES);
   glVertex2f(x1, y_common);
